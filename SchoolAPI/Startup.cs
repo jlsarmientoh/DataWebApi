@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Javeriana.Pica.Core.Data;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,9 +29,22 @@ namespace SchoolAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+        }
 
+        public void ConfigureDevelopmentServices(IServiceCollection services)
+        {
+            services.AddControllers();
+            services.AddAuthorization();
             services.AddDbContext<SchoolContext>(options =>
                 options.UseInMemoryDatabase("School"));
+        }
+
+        public void ConfigureStagingServices(IServiceCollection services)
+        {
+            services.AddControllers();
+            services.AddAuthorization();
+            services.AddDbContext<SchoolContext>(options =>
+                options.UseSqlServer(Configuration["ConnectionStrings:SchoolConnection"]));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

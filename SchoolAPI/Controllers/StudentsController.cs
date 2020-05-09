@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Javeriana.Pica.Core.Data;
 using Javeriana.Pica.Core.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SchoolAPI.Controllers
 {

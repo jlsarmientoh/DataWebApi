@@ -1,4 +1,6 @@
-﻿namespace Javeriana.Pica.Core.Entities
+﻿using System.Text.Json.Serialization;
+
+namespace Javeriana.Pica.Core.Entities
 {
     public enum Grade
     {
@@ -16,6 +18,7 @@
 
         public Course Course { get; set; }
 
+        [JsonIgnore]
         public Student Student { get; set; }
 
 

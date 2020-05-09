@@ -20,7 +20,6 @@ namespace Javeriana.Pica.Core.Data
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-            
         }
     }
 }
